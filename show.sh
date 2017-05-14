@@ -1,1 +1,1 @@
-pdflatex pset6.tex && open pset6.pdf
+pdflatex limthm2.tex && open limthm2.pdf
