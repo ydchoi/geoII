@@ -127,19 +127,48 @@ McKean.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
-Recall the Ito's formula for single martingales: If $f$ is $C^2$ and, for $0 \leq t$,
+Recall the Ito's formula for single martingales: If $f$ is $C^2$ and for all $0 \leq t$,
 \eQb
 E\int_{0}^{t} [f'(M(s))]^2 dA(s) < \infty \>\>\> &\text{and}& \>\>\> E\int_{0}^{t} 
 |f''(M(s))|dA(s) < \infty
 \eQe
-then, for $0 \leq t$,
-\eQb
-f(M(t)) - f(M(0)) &=& \int_{0}^{t} f'(M(s)) dM(s) + \dfrac{1}{2}
-\eQe
+then, for all $0 \leq t$,
+\eQnb
+f(M(t)) - f(M(0)) &=& \int_{0}^{t} f'(M(s)) dM(s) + \dfrac{1}{2} \int_{0}^{t} 
+f'(M(s)) dA(s) \label{eq:1-3-1}
+\eQne
 where $A(t)$ is the unique increasing, continuous process, corresponding to $M(t)$.
-Of course, for the problem at hand, we have $M(t) = B(t)$ and $A(t) = t$. Now, 
-to compute local time, we cannot naively apply this formula, as $max(0,\cdot)$ is 
-not $C^2$. Hence, we approximate with the $f$ as given. Then, by  
+Of course, for the problem at hand, we have $M(t) = B(t)$ and $A(t) = t$, so $db(s)$ and
+$ds$ will be used to denote the integrators. 
+Now, to compute local time, we cannot naively apply this formula, as $\max(0,\cdot)$ is 
+not $C^2(\mathbb{R})$. Hence, we approximate with the suggested strategy. 
+Let $f_{\epsilon}$ be defined as given for each $\epsilon > 0$. Then, 
+for any $0 \leq t$, and $\epsilon > 0$,
+\eQnb
+f_{\epsilon} \circ b(t) &=& f_{\epsilon} \circ b(t) - f_{\epsilon} \circ b(0) 
+= \int_{0}^{t} f_{\epsilon}^{'}(B(s)) db(s) + \dfrac{1}{2} \int_{0}^{t}  
+f_{\epsilon}^{''} (B(s)) ds \label{eq:1-3-2} \\ 
+&=& \int_{\{s \in [0,t] : 0 \leq b(s) < \epsilon\}} \dfrac{b(s) }{\epsilon} db(s)
++ \int_{\{s \in [0,t] : b(s) > \epsilon\}} 1 db(s)
++ \dfrac{1}{2} \int_{ \{s \in [0,t] : 0 \leq b(s) < \epsilon\} } \dfrac{1}{\epsilon} 
+ds  \label{eq:1-3-3} \\
+&=& 
+\int_{\{s \in [0,t] : 0 \leq b(s) < \epsilon\}} \dfrac{b(s) }{\epsilon} db(s)
++ \int_{\{s \in [0,t] : b(s) > \epsilon\}} 1 db(s) \nonumber 
++ \dfrac{1}{2\epsilon} \lambda_1( \{ s \in [0,t] : 0 \leq b(s) < \epsilon \}) \nonumber
+\\ 
+&=:& (I) + (II) + (III) \nonumber 
+\eQne 
+where~\eqref{eq:1-3-2} follows from~\eqref{eq:1-3-1},~\eqref{eq:1-3-3} follows
+from definition of $f_{\epsilon}$ for each $\epsilon > 0$, and $\lambda_1$ denotes
+1-dimensional Lebesgue measure as hinted. With the given fact that $(I)$ is a 
+martingale, we show that
+\eQb
+\int_{\{s \in [0,1] : 0 \leq b(s) < \epsilon\}} \dfrac{b(s)}{\epsilon} db(s) \>\> 
+\text{converges to} 0  as \epsilon \to 0 \>\>\> \text{almost surely}  
+\eQe 
+dd
+ 
 \end{solution}
 
 \newpage
