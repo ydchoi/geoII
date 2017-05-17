@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2017 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2017 23:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,32 +765,32 @@ Package pdftex.def Info: pde2-f-p1.png used on input line 101.
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./pde2-
-f-p1.png>] [2] [3] [4] <pde2-f-p2.png, id=49, 330.23375pt x 494.84875pt>
+f-p1.png>] [2] [3] [4] <pde2-f-p2.png, id=48, 330.23375pt x 494.84875pt>
 File: pde2-f-p2.png Graphic file (type png)
 
 <use pde2-f-p2.png>
-Package pdftex.def Info: pde2-f-p2.png used on input line 271.
+Package pdftex.def Info: pde2-f-p2.png used on input line 279.
 (pdftex.def)             Requested size: 323.76787pt x 485.175pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
-[5 <./pde2-f-p2.png>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 342.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 342.
+[5 <./pde2-f-p2.png>] [6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 389.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 389.
  (./pde2final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 342.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 342.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 389.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 389.
 Package rerunfilecheck Info: File `pde2final.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 342.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 389.
  ) 
 Here is how much of TeX's memory you used:
- 18864 strings out of 493089
- 345852 string characters out of 6134842
- 414996 words of memory out of 5000000
- 22009 multiletter control sequences out of 15000+600000
+ 18866 strings out of 493089
+ 345870 string characters out of 6134842
+ 415022 words of memory out of 5000000
+ 22010 multiletter control sequences out of 15000+600000
  13926 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,54p,390b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -810,10 +810,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on pde2final.pdf (6 pages, 349673 bytes).
+Output written on pde2final.pdf (7 pages, 355638 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
+ 122 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
