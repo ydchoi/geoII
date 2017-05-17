@@ -1,1 +1,1 @@
-pdflatex limthm2.tex && open limthm2.pdf
+pdflatex pde2final.tex && open pde2final.pdf

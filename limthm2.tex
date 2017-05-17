@@ -103,6 +103,17 @@ McKean.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+For $0 \leq t$ and $x \in \mathbb{R}$, set
+\eQb
+w(t,x) &=& E_x(e^{-\beta m(t) f \circ b(t)}) 
+\eQe
+with $m(t) = \int_{0}^{t} K(x) ds$. 
+Then, we see from Mckean's boo 
+\eQb
+w \>\>\> \text{solves} \>\>\> \partial_t w = \dfrac{1}{2} \partial_{xx} w - \beta 
+\eQe
+dd
+
 \end{solution}
 
 \newpage
@@ -115,6 +126,7 @@ McKean.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+
 \end{solution}
 
 \newpage
@@ -173,18 +185,8 @@ and
 \text{converges to} \int_{0}^{t} e(s)  db(s)
 \label{eq:1-3-5} 
 \eQne
-as $\epsilon \downarrow 0$ $\mathbb{P}$ almost surely, so that 
-\eQb
-\max(0,b(t)) = \int_{0}^{t} e(s) db(s) + \lim_{\epsilon \downarrow 0} \dfrac{1}{2
-\epsilon} \lambda_1( \{s \in [0,t] : 0 \leq b(s) < \epsilon\}) \>\>\> \textbf{P} \>\>\>
-\text{almost surely}  
-\eQe 
-where the last limit exists, since for any  $\mathbb{P}$-a.s. $\omega \in \Omega$, 
-$0 \leq t \leq 1$,
-\eQb
-\lambda_1( \{s \in [0,t] : 0 \leq b(s)(w) < \epsilon\}). 
-\eQe 
-Then, for each $0 \leq t \leq 1$, for some
+as $\epsilon \downarrow 0$ $\mathbb{P}$ almost surely. 
+To show~\eqref{eq:1-3-4}, there exists a constant $C$, each $0 \leq t \leq 1$, for some
 universal constant $C$, independent of $t$,
 \eQnb
 E\left[ \int_{0}^{t} \dfrac{b(s)}{\epsilon} 1_{\{0 \leq b(s) < \epsilon\}} - 0 db(s) 
@@ -200,17 +202,86 @@ E\left[ \int_{0}^{t} \dfrac{b(s)}{\epsilon} 1_{\{0 \leq b(s) < \epsilon\}} - 0 d
 where~\eqref{eq:1-3-6} holds by the Ito $L^2$ isometry,~\eqref{eq:1-3-7} follows by 
 the scaling of BW(1), and~\eqref{eq:1-3-8} follows from the fact that  
 \eQb
-\dfrac{P(|b(1) \leq x)}{x} \>\>\> \text{is uniformly bounded } \>\>\> \text{for all} 
+\dfrac{P(|b(1)| \leq x)}{x} \>\>\> \text{is uniformly bounded } \>\>\> \text{for all} 
 \>\>\> x > 0. 
 \eQe
-Hence, if $\epsilon = \Omega(n^2)$, then, by Doob's inequality,
+Hence, if $\epsilon = O(n^{-2})$, then, by Doob's inequality,
 \eQb
 (I) \to 0 \>\>\> \text{uniformly for } \>\>\> 0 \leq t \leq 1 \>\>\> P \>\>\> 
 \text{almost surely}
 \eQe
-showing~\eqref{eq:1-3-4}.
-
-Now, from uniformity of convergence and continuity of Lebesgue measure, we see that
+showing~\eqref{eq:1-3-4}. Now, denote the speed chosen above as $\gamma(n)$, which
+is required to be $\lim_{n \to \infty} \gamma(n) = 0$ and 
+$O(n^{-2})$. Now, by the Ito $L^2$ Isometry, for each $n$ and $0 \leq t \leq 1$, 
+\eQnb
+E\left[ \int_0^{t} (-1_{\{ b(s) > \gamma(n) \}} + 1_{\{b(s) > 0\}}) db(s) \right]^2
+&=& E\left[ \int_0^t (-1_{\{b(s) > \gamma(n) \}} + 1_{\{b(s) > 0 \}})^2 ds \right] 
+\nonumber \\
+&=& E\left[ \int_{0}^{t} 1_{\{ \gamma(n) >  b(s) > 0  \}} ds \right] \label{eq:
+1-3-5}.  
+\eQne
+Now, as $\gamma(n) \to 0$, for almost surely $w \in \Omega$, and
+$n$ large enough
+\eQb
+1_{\{\gamma(n) > b(s)(w) > 0 \}} &=& 0 
+\eQe
+and hence
+\eQnb
+\int_{0}^{t} 1_{\{\gamma(n)> b(s)(w) > 0\}} ds &=& 0 \label{eq:1-3-6}
+\eQne
+Since, for each $n$,
+\eQb
+\int_{0}^{t} 1_{\{\gamma(n)> b(s) > 0\}} ds &\leq& 1_{ \{ [0,t] \times \{ \gamma(n)
+> b(s) > 0 \}\}} \in L^1(\Omega\times[0,\infty))  
+\eQe
+by DCT on the product space, we see that the right hand side of~\eqref{eq:1-3-5}
+converges to $0$, and
+\eQb
+\int_0^t 1_{\{ b(s) > \gamma(n)\}} db(s) \to 
+\int_0^t 1_{\{ b(s) > 0\}} db(s) \>\>\> \text{in} \>\>\> L^2. 
+\eQe
+Hence, we can choose a subsequence of $\gamma(n)$, denote it as $\rho(n)$, such that
+\eQb
+\int_0^t 1_{\{ b(s) > \rho(n)\}} db(s) \to 
+\int_0^t 1_{\{ b(s) > 0\}} db(s) \>\>\> \text{in} \>\>\> \text{almost surely}.  
+\eQe
+We see that uniformity of convergence persists by monotonicity ~\eqref{eq:1-3-6} with
+$t$. Hence, we see that~\eqref{eq:1-3-4} and~\eqref{eq:1-3-5} holds by choosing
+the speed $\rho(n)$ uniformly in $t \leq 1$. Now, for almost surely $w \in \Omega$,
+and $m < n$,  
+\eQnb
+\left| \dfrac{1}{2
+\rho(n)} 
+\lambda_1( \{s \in [0,t] : 0 \leq b(s)(w) < \rho(n)\}) -
+  \dfrac{1}{2
+\rho(m)} 
+\lambda_1( \{s \in [0,t] : 0 \leq b(s)(w) < \rho(m)\}) \right| \label{eq:1-3-7} 
+\eQne 
+is bounded above by
+\eQb
+\dfrac{1}{2\rho{(m)}}  
+\lambda_1(\{s \in [0,t] : \rho(n)< b(s)(w) < \rho(m)\})  
+\eQe
+which in turn is bounded above by
+\eQb
+\dfrac{1}{2\rho(m)} \dfrac{2}{\pi} (\rho(m) - \rho(n)) = 
+\dfrac{\rho(m) - \rho(n)}{\pi \rho(m)}  
+\eQe
+By choosing a subsequence of $\rho(n)$ of speed $O(2^{-n})$, $\psi(n)$, we see that
+for almost surely $w \in \Omega$ and $m < n$,~\eqref{eq:1-3-7} is bounded above by 
+\eQb
+\dfrac{\psi(m) - \psi(n)}{\pi \psi(m)}  = O(2^{-m})
+\eQe
+and hence, for almost surely $w \in \Omega$,
+\eQb
+\dfrac{1}{2\psi(n)}\lambda_1(\{ s \in [0,t] : 0 \leq b(s)(w) < \psi(n) \} \>\>\>
+\text{is cauchy, thus convergent}.
+\eQe
+Hence, we have established that with the sequence $\psi(n)$, the claimed convergence
+of (I), (II), and (III) all hold. We are told that the convergence will hold for any 
+speed, i.e. independent of the choice of the countable sequence converging to $0$,
+but we will forgo the work for now.
+From uniformity of convergence and continuity of Lebesgue measure, we see that
 $\textbf{t}(t)$ is continuous, and clearly increasing as (II) and (III) are
 increasing in t almost surely. 
  
@@ -226,6 +297,11 @@ increasing in t almost surely.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+Fix $x \in \mathbb{R}$.
+We first show that $\bold{t}^{-1}$ is a stopping time. Observe that
+\eQb
+\{ \bold{t}^{-1}(x) \leq t \} &=&  
+\eQe
 \end{solution}
 
 \newpage
@@ -263,21 +339,56 @@ e^{\frac{-(y - (x + \alpha(t_2 - t_1))^2}{2(t_2 - t_1)}} dy  \\
 &=& \dfrac{1}{h(t_1,x)} e^{\alpha x - \frac{1}{2} \alpha^2 t_1} = \dfrac{h(t_1,x)}{
 h(t_1,x)} = 1.
 \eQe
-Now, we compute the associated infinitessimal operator. From the general theory, we 
+Now, we compute the associated infinitessimal operator.
+Setting $s = t_2 - t_1$ and $t = t_1$, from the general theory, we 
 know that the generator must be defined by
 \eQnb
-\mathscr{G}(t_1) f(x) &=& \lim_{t_2 \downarrow t_1} \dfrac{\int f(y)P^h(
-\bold{x}(t_2) = y | \bold{x}(t_1) = x) dy - f(x)}{t_2 - t_1} \\
+\mathscr{G} f(x) &=& \lim_{s \downarrow 0} \dfrac{\int f(y)P^h(
+\bold{x}(t+s) = y | \bold{x}(t) = x) dy - f(x)}{s} \nonumber \\
+&=& \dfrac{1}{h(t,x)} \lim_{s \downarrow 0} \dfrac{1}{s} 
+\int f(y) \dfrac{e^{-\frac{(x-y)^2}{2s}}}{\sqrt{2\pi s}} h(t+s,y) dy - f(x)h(t,x) 
+\nonumber \\
+&=& \dfrac{1}{h(t,x)} \lim_{s \downarrow 0} \dfrac{1}{s} 
+\int f(y) \dfrac{e^{-\frac{(x-y)^2}{2s}}}{\sqrt{2\pi s}} e^{\alpha y} e^{-\alpha^2 
+\frac{(t+s)}{2}} dy - f(x)e^{\alpha x - \alpha^2 \frac{t}{2}} \label{eq:1-6-1} 
 \eQne
 whenever the limit is well-defined for $f \in C_0(\mathbb{R})$.
-
-By observing that $h$ satisfies the backward heat equation, we further compute
-for each $0 \leq t$,
+Recall that we saw from class that 
 \eQb
-\mathscr{G}(t)f &=& \dfrac{1}{h} \partial_t h f + \dfrac{1}{2} \partial_x (f_x h 
+u(s,x) &=& \int f(y) \dfrac{e^{\frac{-(x-y)^2}{\sqrt{2s}}}}{\sqrt{2\pi s}} e^{\alpha y}
+dy  
+\eQe
+solves 
+\eQb
+u_t - \dfrac{1}{2}u_{xx} = 0 \>\>\> \text{and} \>\>\> u(0,x) = f(x) e^{\alpha x}.
+\eQe
+Therefore, we can continue~\eqref{eq:1-6-1} as
+\eQb
+&=& \dfrac{1}{h(t,x)} \lim_{s \downarrow 0} \dfrac{1}{s}
+(u(s,x)e^{\frac{-\alpha^2 (t+s)}{2}} 
+- u(0,x) e^{\frac{-\alpha^2 t}{2}} ) \\
+&=& \dfrac{1}{h(t,x)} \lim_{s \downarrow 0} \dfrac{1}{s} 
+((u(s,x) - u(0,x))e^{-\frac{\alpha^2(t+s)}{2}} + u(0,x)(e^{-\frac{\alpha^2(t+s)}{2}} 
+- e^{-\frac{\alpha^2 t}{2}})) \\
+&=& \dfrac{1}{h(t,x)} (\dfrac{1}{2} \partial_{xx} (f(x)h(t,x)) + f(x) \partial_t h(t,x))
+\\   
+\eQe
+Hence, the generator of the process is 
+\eQb
+\mathscr{G} f = \dfrac{1}{h} ( \dfrac{1}{2} \partial_{xx} + \partial_t) (fh), 
+\eQe
+defined for each $f \in C(\mathbb{R})$ with 1-time partial and 2-space partials.
+Furthermore, by noting that $h$ solves the backward heat equation, 
+\eQb
+\mathscr{G}f &=& \dfrac{1}{h} \partial_t h f + \dfrac{1}{2} \partial_x (f_x h 
 + h_X f) \\
 &=& \dfrac{1}{h} \partial_{t} h f + \dfrac{1}{2h} (f_{xx} h + 2 f_x h_x + h_{xx} f) \\
-&=& \dfrac{1}{2} 
+&=& \dfrac{1}{2} f_{xx} + \dfrac{1}{h} h_x f_x, 
+\eQe
+and hence the underlying process $\bold{x}_t$ solves the stochastic differential 
+equation
+\eQb
+d\bold{x}_t &=& \dfrac{\partial_xh(t,\bold{x}_t)}{h(t,\bold{x}_t)} dt + dB_t.
 \eQe
 \end{solution}
 \end{document}
