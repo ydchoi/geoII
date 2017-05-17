@@ -378,12 +378,28 @@ so we are done. \hfill $\qed$
 
 
 \bigskip
-\noindent \textbf{(6)} We compute
+\noindent \textbf{(6)} We wish to show that
+\eQnb
+v_t &=& v_{xx} + 2tv_{xy} + t^2 v_{yy} \label{eq:1-2-6-1} 
+\eQne
+To that end, we compute
 \eQb
-v_t &=& u_t - xu_y \\
 v_x &=& u_x - tu_y \\
-v_{xx} &=& u_{xx} - 2tu_{yx} + t^2 u_{yy} 
+v_{xx} &=& u_{xx} - 2tu_{yx} + t^2 u_{yy} \\
+v_t &=& u_t - xu_y \\
+2tv_{xy} &=& 2tu_{xy} - 2t^2 u_{yy} \\
+t^2 v_{yy} &=& t^2 u_{yy}.
 \eQe
+Substituting the above equations to~\eqref{eq:1-2-6-1},
+\eQb
+u_t - xu_y &=& u_{xx} = u_{xx} - 2tu_{xy} + t^2 u_{yy} + 2tu_{xy} - 2t^2 u_{yy}
++ t^2 u_{yy}
+\eQe
+which simplifies to
+\eQb
+u_t - u_xx - xu_y &=& 0.
+\eQe
+Therefore, we see that $v$ solves~\eqref{eq:1-2-6-1}, as required. \hfill $\qed$
 
 
 \bigskip 
