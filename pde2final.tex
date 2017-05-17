@@ -282,7 +282,43 @@ Hence $u$ is globally bounded in $H^1$, so
 and by the lemma in page 2 of lecture note 8, $T^* = \infty$. \hfill $\qed$
 
 \bigskip
-\textbf{(8)} 
+
+\noindent 
+\textbf{(7)} We follow the strategy given in the page 6 of the lecture note 8.
+Denote $u - 1$ simply by $u$. Then,
+there exists $C$ constant such that, for $t -1 < s$, 
+\eQb
+\int_{t-1}^{t} e^{(t-s)\triangle} (u-u^3)(s) ds||_{\infty} 
+&\leq& C\int_{t-1}^{t} ||u(s)||_{\infty}^3 + ||u(s)||_{\infty} ds  \\
+&\leq& \dfrac{C(\epsilon + \epsilon^3)}{t}
+\eQe
+and
+for $0 < s < t -1 $,
+\eQb
+|| \int_{0}^{t-1} e^{(t-s) \triangle} (u-u^3) ds ||_{\infty} &\leq&
+\int_{0}^{t-1} ||e^{(t-s) \triangle} (u-u^3)||_{\infty} ds \\ 
+&\leq& 
+\int_{0}^{t-1} ||\frac{C}{(t-s)^{\frac{1}{2}}}  (u-u^3)||_{1} ds \\ 
+&\leq& \int_{0}^{t-1} \dfrac{C}{t^{\frac{1}{2}}} (
+||u(s)||_{2}^2 ||u(s)||_{\infty} + ||u(s)||_{\infty}) \\
+&\leq& \dfrac{C(\epsilon + \epsilon^3)}{t^{\frac{1}{2}}} .
+\eQe
+Hence, for $\epsilon$ small enough, the solution $u = 1$ is asymtotically stable.
+\hfill $\qed$
+
+\bigskip
+\noindent
+\textbf{(8)} No. From (5), we saw that the linearized PDE is unstable for the 
+$u = 0$ case. Hence, we do not have a linear decay estimate that overcomes
+the nonlinear effects even for small data. \hfill $\qed$
+
+\bigskip
+
+\noindent \textbf{(9)}  
+
+\bigskip
+
+\noindent \textbf{(10)} 
 
 \end{solution}
 
@@ -365,8 +401,8 @@ dl
 \eQe
 Setting $C_1 = \dfrac{4}{3}$, and $C_2 = -\dfrac{1}{3}$,
 \eQnb
-||z||_{L^2}^2 &=& \lambda^{\frac{11}{3}} ||v||_{L_2}^{2} \nonumber \\
-||z' + l^2 z||_{L^2}^2 &=& \lambda^{3} ||v' + l^2 \lambda v||_{L^2}^2. 
+||z||_{L^2}^2 &=& \lambda^{3} ||v||_{L_2}^{2} \nonumber \\
+||z' + l^2 z||_{L^2}^2 &=& \lambda^{\frac{7}{3}} ||v' + l^2 \lambda v||_{L^2}^2. 
 \label{eq:1-2-3-1} 
 \eQne
 Now, by (2), for some constant $C > 0$,
@@ -465,7 +501,7 @@ Therefore,it suffices to show that
 \eQb
 \mathscr{F}(\Phi) &=& e^{-\xi^2 t - \xi \eta t^2 - \frac{1}{3}\eta^2 t^3}.
 \eQe
-This can be checked (don't have time to type it).
+This can be checked by definition and completing the square in the integral.
 
 \bigskip
 
@@ -483,18 +519,18 @@ as required. \hfill $\qed$
 u(t,x,z) = \int \dfrac{C_0}{t^2} e^{-\frac{(x-z_1)^2}{t} + \frac{3(x-z_1)(z+xt - z_2)}
 {t^2} - \frac{3(z+xt-z_2)^2}{t^3}} u_0(z_1, z_2) dz_1 dz_2.
 \eQe
-Then, if Young's inequality was to be applied, then
+Then, if Young's inequality were to be applied, then
 \eQb
 ||u(t)||_{p} &\leq& ||\Phi(t,x,xt+z)||_r ||u_0||_{q}
 \eQe
 for $1 \leq p,q,r \leq \infty$, with $\frac{1}{p} + 1 = \frac{1}{r} + \frac{1}{q}$.
 With this in mind, we compute
 \eQb
-||\Phi(t,x,xt+z)||_r^r = \dfrac{C_0^r}{t^2r} e^{r(-\frac{x^2}{t} + 
-\frac{3x(xt+z)}{t^2} - \frac{3(xt+z)^2}{t^3})} dx dz
+||\Phi(t,x,xt+z)||_r^r &=& \int \dfrac{C_0^r}{t^{2r}} e^{r(-\frac{x^2}{t} + 
+\frac{3x(xt+z)}{t^2} - \frac{3(xt+z)^2}{t^3})} dx dz \\
+&=& C t^{-2r} \int e^{r\Theta(t^{-1})} dx dz  
 \eQe
- 
-\hfill $\qed$
+... 
 
 \bigskip
 
