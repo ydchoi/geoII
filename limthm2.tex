@@ -103,16 +103,64 @@ McKean.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
-For $0 \leq t$ and $x \in \mathbb{R}$, set
+Recall that for $K \subset \mathbb{Z}^3$ such that $|K| < \infty$, 
+\eQnb
+C(K) &=& \sum_{y \in \partial K} q(y) \>\>\> \text{with} \>\>\> q(y) = P_y(\{
+X_n \not \in K \>\>\> \forall n > 0\}) \label{eq:1-1-1}
+\eQne
+Furthermore, for any $K \subset \mathbb{Z}^3$ such that $|K| < \infty$ and $x \in 
+\mathbb{Z}^3$, we have Chung's formula from the textbook:
+\eQnb
+p(x) &=& \sum_{y \in \partial K} G(x,y) q(y) \label{eq:1-1-2}.
+\eQne
+where $p$ denotes the potential, which in particular equals $1$ on $K$.
+Now, let $K = \{a,b\}$ such that $a \neq b$. Then, by~\eqref{eq:1-1-1},
 \eQb
-w(t,x) &=& E_x(e^{-\beta m(t) f \circ b(t)}) 
+C(K) &=& q(a) + q(b)
 \eQe
-with $m(t) = \int_{0}^{t} K(x) ds$. 
-Then, we see from Mckean's boo 
+and by~\eqref{eq:1-1-2},
+\eQnb
+1 &=& p(a) = G(a,a)q(a) + G(a,b)q(b) \nonumber \\
+1 &=& p(b) = G(b,a)q(a) + G(b,b)q(b) \label{eq:1-1-3} 
+\eQne
+By symmetry of RW(3), for any $x,y \in \mathbb{Z}^3$
 \eQb
-w \>\>\> \text{solves} \>\>\> \partial_t w = \dfrac{1}{2} \partial_{xx} w - \beta 
+G(x,x) = G(0,0) \>\>\> \text{and} \>\>\> G(x,y) = G(y,x).
 \eQe
-dd
+Therefore, combined with~\eqref{eq:1-1-3},
+\eQb
+C(K) &=& q(a) + q(b) = \dfrac{2}{G(0,0) + G(a,b)}. 
+\eQe
+Similarly, let $K = \{a\}$ for some $a \in \mathbb{Z}^3$. Then, by~\eqref{eq:1-1-1},
+\eQb
+C(K) = q(a) 
+\eQe
+and by~\eqref{eq:1-1-2},
+\eQb
+1 = p(a) &=& G(a,a)q(a).
+\eQe
+Therefore,
+\eQb
+C(K) = \dfrac{1}{G(a,a)} = \dfrac{1}{G(0,0)}.
+\eQe
+Now, for any $x,y \in \mathbb{Z}^3$ such that $x\neq y$, define the canonical coordinate
+path from $x \to y$ by first moving from $x$ to $(y_1, x_2, x_3)$, then to 
+$(y_1, y_2, x_3)$, then to $(y_1, y_2, y_3) = y$. Notice that 
+the number of timesteps required 
+to move from $x$ to $y$ via the canonical path is $||x - y||_{1}$, which is finite. 
+With this in mind, for any $x,y \in \mathbb{Z}^3$ such that $x \neq y$, 
+\eQb
+G(x,y) &=& \sum_{0}^{\infty} P_x(X_n = y) \geq P_x( X_n = y \text{ for some n} \geq 0)
+\\
+&\geq& P_x(\{ \text{the canonical coordinate path occurs} \}) 
+= \dfrac{1}{6}^{||x-y||_1} > 0. 
+\eQe
+Then, for any $a,b \in \mathbb{Z}^3$, such that $ a \neq b$,
+\eQb
+C(a) + C(b) = \dfrac{2}{G(0,0)} &\neq& \dfrac{2}{G(0,0) + G(a,b)} = C(\{a,b\}), 
+\eQe
+which shows that $C$ is not additive. \hfill $\qed$
+
 
 \end{solution}
 
@@ -126,6 +174,58 @@ dd
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+Setting $f = \delta(x)$ as suggested, 
+\eQb
+\int_{0}^{\infty} e^{-\alpha t} E_0( e^{\beta \bold{m} 
+(t)}, b(t) = 0) dt 
+&=& \int_{0}^{\infty} e^{-\alpha t}  E_0(e^{-\beta \bold{m}} f \circ b(t)) dt ] \\ 
+&=& \dfrac{h_+(0) \int_{-\infty}^{0} h_- f dy + h_- (0) \int_{0}^{\infty} h_+ f dy}{
+\frac{1}{2} (h' - h_+ - h_- h_{+}')|_{x = 0}} \\
+&=& \dfrac{h_{+}(0) h_{-}(0) + h_-(0) h_+(0)}{\frac{1}{2} (\sqrt{2\alpha} + 
+\sqrt{2(\alpha + \beta)})} = \dfrac{2}{\sqrt{2\alpha} + \sqrt{2(\alpha + \beta)}}. \\ 
+\eQe
+Now, assuming that $\bold{m}$ is uniform on $[0,t]$, we verify
+\eQnb
+\int_{0}^{\infty} e^{-\alpha t} E_0(e^{-\beta \bold{m}(t)} | b(t) = 0) \dfrac{dt}{
+\sqrt{2\pi t}} &=& 
+\int_{0}^{\infty} e^{-\alpha t} E_0( e^{\beta \bold{m} 
+(t)}, b(t) = 0) dt \label{eq:1-2-1}  
+\eQne
+Observe that
+\eQnb
+\lim_{\epsilon \downarrow 0} \dfrac{1}{x} (e^{-(\alpha + \beta)x^2} - e^{-\alpha x^2} ))
+|_{\epsilon}^{\infty} 
+&=& \lim_{\epsilon \downarrow 0} \dfrac{1}{\epsilon} (e^{-(\alpha + \beta) \epsilon^2}
++ e^{-\alpha \epsilon^2}) = \lim_{\epsilon \downarrow 0} \beta \epsilon +  
+O(\epsilon^3) = 0 \label{eq:1-2-2}
+\eQne
+where the second last equality holds via Taylor expansion. With the above limit in
+mind we now compute  with $\bold{m} ~ \text{uniform}[0,t]$,
+\eQnb
+\int_{0}^{\infty} e^{-\alpha t} E_0(e^{-\beta \bold{m}(t)} | b(t) = 0) \dfrac{dt}{
+\sqrt{2\pi t}}  
+&=& \int_{0}^{\infty} e^{-\alpha t} \dfrac{1}{t\sqrt{2\pi t}}
+\int_{0}^{t} e^{-\beta x} dx dt \nonumber \\
+&=& \int_{0}^{\infty} e^{-\alpha t} \dfrac{1}{t\sqrt{2\pi t}}( \dfrac{1}{\beta}
+- \dfrac{1}{\beta} e^{-\beta t}) dt \nonumber \\
+&=& \dfrac{2}{\beta \sqrt{2\pi}} \int_{0}^{\infty} \dfrac{1}{x^2} e^{-\alpha x^2} 
+- \dfrac{1}{x^2} e^{-(\alpha + \beta) x^2} dx \label{eq:1-2-3}\\
+&=& \dfrac{2}{\beta\sqrt{2\pi}} (\lim_{\epsilon \downarrow 0} (
+\dfrac{1}{x} (e^{-(\alpha + \beta)x^2} - e^{-\alpha x^2})|_{\epsilon}^{\infty}
+\nonumber \\ 
+&+& \sqrt{(\alpha + \beta)\pi} - \sqrt{\alpha \pi}) \label{eq:1-2-4} \\
+&=& \dfrac{2}{\beta \sqrt{2 \pi}} (\sqrt{(\alpha + \beta)\pi} - \sqrt{\alpha \pi}) 
+\label{eq:1-2-5}\\
+&=&
+\dfrac{(\sqrt{2(\alpha + \beta)} - \sqrt{2\alpha}}{\beta} = \dfrac{2}{\sqrt{2(\alpha
++ \beta)} + \sqrt{2\alpha}}, \nonumber  
+\eQne
+where~\eqref{eq:1-2-3} holds by a change of variables $t = x^2$,~\eqref{eq:1-2-4}
+follows from integration by parts, and~\eqref{eq:1-2-5} holds by~\eqref{eq:1-2-2}.
+This verifies~\eqref{eq:1-2-1}. This of course is not a complete proof as noted.
+We have not yet proved that the uniform measure on $[0,t]$ is the ONLY measure
+with such property. 
+ \hfill $\qed$
 
 \end{solution}
 
