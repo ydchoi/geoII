@@ -180,11 +180,11 @@ Setting $f = \delta(x)$ as suggested,
 (t)}, b(t) = 0) dt 
 &=& \int_{0}^{\infty} e^{-\alpha t}  E_0(e^{-\beta \bold{m}} f \circ b(t)) dt ] \\ 
 &=& \dfrac{h_+(0) \int_{-\infty}^{0} h_- f dy + h_- (0) \int_{0}^{\infty} h_+ f dy}{
-\frac{1}{2} (h' - h_+ - h_- h_{+}')|_{x = 0}} \\
+\frac{1}{2} (h_{-}' h_+ - h_- h_{+}')|_{x = 0}} \\
 &=& \dfrac{h_{+}(0) h_{-}(0) + h_-(0) h_+(0)}{\frac{1}{2} (\sqrt{2\alpha} + 
 \sqrt{2(\alpha + \beta)})} = \dfrac{2}{\sqrt{2\alpha} + \sqrt{2(\alpha + \beta)}}. \\ 
 \eQe
-Now, assuming that $\bold{m}$ is uniform on $[0,t]$, we verify
+Now, assuming that $\bold{m}$ is uniform, we verify
 \eQnb
 \int_{0}^{\infty} e^{-\alpha t} E_0(e^{-\beta \bold{m}(t)} | b(t) = 0) \dfrac{dt}{
 \sqrt{2\pi t}} &=& 
@@ -239,7 +239,8 @@ with such property.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
-Recall the Ito's formula for single martingales: If $f$ is $C^2$ and for all $0 \leq t$,
+Recall the Ito's formula for single martingales: If $f$ has enough regularity,
+and for all $0 \leq t$,
 \eQb
 E\int_{0}^{t} [f'(M(s))]^2 dA(s) < \infty \>\>\> &\text{and}& \>\>\> E\int_{0}^{t} 
 |f''(M(s))|dA(s) < \infty
@@ -383,7 +384,19 @@ speed, i.e. independent of the choice of the countable sequence converging to $0
 but we will forgo the work for now.
 From uniformity of convergence and continuity of Lebesgue measure, we see that
 $\textbf{t}(t)$ is continuous, and clearly increasing as (II) and (III) are
-increasing in t almost surely. 
+increasing in t almost surely. In other words, for almost surely $w \in \Omega$, and
+for all $t \geq s \geq 0$,
+\eQb
+\bold{t}(s)(w) \leq \bold{t}(t)(w). 
+\eQe
+To see that $\bold{t}$ only increases on $\{t : b(t) = 0\}$, consider
+$|b(t)|$ as a semi-martingale with $t$ being its variance brocess. Then, applying
+Ito's formula with $x^2$, 
+\eQb
+\int_{0}^{t} |B(s)| d\bold{t} &=& 0,
+\eQe
+which shows that $\bold{t}$ only increases at $\{t : b(t) = 0\}$. \hfill $\qed$
+
  
 \end{solution}
 
@@ -397,11 +410,8 @@ increasing in t almost surely.
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
-Fix $x \in \mathbb{R}$.
-We first show that $\bold{t}^{-1}$ is a stopping time. Observe that
-\eQb
-\{ \bold{t}^{-1}(x) \leq t \} &=&  
-\eQe
+Figures attached on the next page.
+
 \end{solution}
 
 \newpage
@@ -414,6 +424,32 @@ We first show that $\bold{t}^{-1}$ is a stopping time. Observe that
 \end{figure}
 \end{question}
 \begin{solution} \hfill \\
+Fix $x \in \mathbb{R}$. For any $t \geq 0$, 
+\eQnb
+\{w \in \Omega : 
+\bold{t}^{-1}(x)(w) \leq t\} &=& 
+\{ w \in \Omega: \bold{t}(\bold{t}^{-1}(x))(w) \leq
+ \bold{t}(t)(w) \} \\
+&=& 
+ \{ w \in \Omega: x \leq
+ \bold{t}(t)(w) \} \in \mathscr{F}_t \label{eq:1-5-1} 
+\eQne
+where~\eqref{eq:1-5-1} holds as $\bold{t}(\cdot)(w)$ is increasing
+for almost surely $w \in \Omega$, 
+and~\eqref{eq:1-5-2} holds as $\bold{t}(t)$ is $\mathscr{F}_t$ measurable.
+By Optional Stopping time theorem,
+\eQb
+e^{\alpha x} E_0(e^{-\alpha^2 \frac{T_x}{2}}) &=& 
+E_0(e^{\alpha b({T_x}) - \frac{\alpha^2 {T_x}}{2}}) = 1 \\
+&=& E_0(e^{\alpha b(\bold{t}^{-1}(x)) - \frac{\alpha^2 \bold{t}^{-1}(x)}{2}})  
+= e^{\alpha x} E_0(e^{-\alpha^2 \frac{\bold{t}^{-1}}{2}})
+\eQe
+Since the moment generating functions of $T_x$ and $\bold{t}^{-1}$ are the same any
+$\alpha > 0$,
+\eQb
+T_x &=^{D}& \bold{t}^{-1},
+\eQe
+as required. \hfill $\qed$
 \end{solution}
 
 \newpage
